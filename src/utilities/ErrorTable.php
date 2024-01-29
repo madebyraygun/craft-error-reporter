@@ -13,7 +13,7 @@ class ErrorTable extends Utility
      */
     public static function displayName(): string
     {
-        return Craft::t('app', 'Error Reporting');
+        return Craft::t('app', 'Error Reporter');
     }
 
     /**
