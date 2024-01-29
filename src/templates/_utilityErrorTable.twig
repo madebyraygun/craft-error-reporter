@@ -1,0 +1,39 @@
+{% paginate errorsQuery as pageInfo, errors %}
+
+{% if errors is not empty %}
+  <div class="main tablepane">
+    <table id="errors" class="data fullwidth">
+      <thead>
+        <th scope="col">{{ 'First Seen'|t }}</th>
+        <th scope="col">{{ 'Most Recent'|t }}</th>
+        <th scope="col">{{ 'Github Link'|t }}</th>
+        <th scope="col">{{ 'Count'|t }}</th>
+      </thead>
+      <tbody>
+      {% for error in errors %}
+        <tr>
+          <td>{{ error.dateCreated|date('m-d-yy') }}</td>
+          <td>{{ error.dateUpdated|timestamp }}</td>
+          <td><a target="_blank" href="{{error.githubIssueUrl}}">{{ error.title|truncate(80) }}...</td>
+          <td>{{ error.count }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div id="footer" class="flex">
+  <div id="count-container" class="light flex-grow">
+    {% include '_includes/pagination' with {
+      'pageInfo' : pageInfo,
+      'itemLabel' : 'error'|t,
+      'itemsLabel': 'errors'|t
+    } %}
+    </div>
+  </div>
+{% else %}
+  <p class="zilch">
+   {{ 'No errors yet.'|t('app') }}
+  </p>
+{% endif %}
+

@@ -1,0 +1,40 @@
+{% import '_includes/forms.twig' as forms %}
+
+{{ forms.lightswitchField({
+  label: 'Basic Logging Enabled'|t,
+  instructions: 'Uses Craft Exception events to track application errors. No configuration required.'|t,
+  name: 'basicLoggingEnabled',
+  on: settings.basicLoggingEnabled ?? false,
+}) }}
+
+{{ forms.autosuggestField({
+  label: 'Github Token'|t,
+  instructions: "Your [Github personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."|t,
+  name: 'githubToken',
+  value: settings.githubToken,
+  suggestEnvVars: true,
+}) }}
+
+{{ forms.autosuggestField({
+  label: 'Github Repo Handle'|t,
+  instructions: "Format: `username/repo`"|t,
+  name: 'githubRepoHandle',
+  value: settings.githubRepoHandle,
+  suggestEnvVars: true,
+}) }}
+
+{{ forms.autosuggestField({
+  label: 'Default Assignees'|t,
+  instructions: "Optional comma-separated list of Github usernames to assign to new issues."|t,
+  name: 'githubIssueAssignees',
+  value: settings.githubIssueAssignees,
+  suggestEnvVars: true,
+}) }}
+
+{{ forms.autosuggestField({
+  label: 'Excluded Status Codes'|t,
+  instructions: "Optional comma-separated list excluded status codes."|t,
+  name: 'excludedStatusCodes',
+  value: settings.excludedStatusCodes,
+  suggestEnvVars: true,
+}) }}
