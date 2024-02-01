@@ -1,6 +1,6 @@
 # Error Reporter
 
-Automatically log and send Craft CMS application error reports to Github, email, and other targets.
+Automatically log Craft CMS application errors and send to email, Github, and more.
 
 ## Requirements
 

@@ -1,6 +1,6 @@
 {
     "name": "madebyraygun/craft-error-reporter",
-    "description": "Automatically log errors and send to email, Github, and more.",
+    "description": "Automatically log Craft CMS application errors and send to email, Github, and more.",
     "type": "craft-plugin",
     "license": "proprietary",
     "authors": [
