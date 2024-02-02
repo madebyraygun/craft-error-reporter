@@ -23,6 +23,11 @@ class Settings extends Model
             [['githubToken', 'githubRepoHandle'], 'required'],
         ];
     }
+    
+    public function getBasicLoggingEnabled(): bool
+    {
+        return (bool) Plugin::getInstance()->getSettings()->basicLoggingEnabled;
+    }
 
     public function getGithubToken(): string
     {

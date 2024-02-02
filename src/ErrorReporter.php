@@ -85,7 +85,7 @@ class ErrorReporter extends BasePlugin
             ErrorHandler::class,
             ErrorHandler::EVENT_BEFORE_HANDLE_EXCEPTION,
             function(ExceptionEvent $event) {
-                if (!$this->getSettings()->basicLoggingEnabled) {
+                if (!$this->getSettings()->getBasicLoggingEnabled()) {
                     return;
                 }
                 $this->basicLoggerService->logException($event->exception);
