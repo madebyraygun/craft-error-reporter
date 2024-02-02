@@ -164,8 +164,10 @@ class BasicLoggerService extends Component
 
     public function getErrorHash(object $exception): string
     {
+        /* Duplicate detection: use file path and line number to create a hash */
+        $fileWithPaths = explode('/', $exception->getFile());
         $hash = md5(json_encode(
-            $exception->getMessage() . $exception->getFile() . $exception->getLine()
+            array_slice($fileWithPaths, -4, 4, true) . $exception->getLine()
         ));
         return $hash;
     }
